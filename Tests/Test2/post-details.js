@@ -31,7 +31,7 @@ returnBtn2.addEventListener('click',() =>{
 
     const userId = JSON.parse(localStorage.getItem('userId'))
 
-    location.href = `user_details.html?id=` + `${userId.userId}`;
+    location.href = `user-details.html?id=` + `${userId.userId}`;
 
 
 
