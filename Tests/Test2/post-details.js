@@ -1,10 +1,9 @@
 //На странице post-details.html:
 // 7 Вивести всю, без виключення, інформацію про об'єкт post на який клікнули .
-// 8 Нижчє інформаці про пост, вивести всі коментарі поточного поста (ендпоінт  - https://jsonplaceholder.typicode.com/posts/POST_ID/comments)
+// 8 Нижчє інформаці про пост, вивести всі коментарі поточного поста (ендпоінт - https://jsonplaceholder.typicode.com/posts/POST_ID/comments)
 
 const postId = new URL(location.href).searchParams.get('postId');
 console.log(postId);
-let CommentsUrl = `https://jsonplaceholder.typicode.com/comments/${postId}`
 
 
 let returnButton2 = document.createElement('div')
@@ -15,7 +14,7 @@ returnBtn.innerHTML = `
     <h4 id="returnButton2">Return back to the users list</h4>
     `
 returnBtn.addEventListener('click',() =>{
-  location.href = 'index.html'
+    location.href = 'index.html'
 })
 
 returnButton2.appendChild(returnBtn)
@@ -30,7 +29,9 @@ returnBtn2.innerHTML = `
     `
 returnBtn2.addEventListener('click',() =>{
 
-  location.href = `user_details.html?id=` + postId;
+    const userId = JSON.parse(localStorage.getItem('userId'))
+
+    location.href = `user_details.html?id=` + `${userId.userId}`;
 
 
 
@@ -40,71 +41,81 @@ returnButton3.appendChild(returnBtn2)
 document.body.appendChild(returnButton3)
 
 fetch(`https://jsonplaceholder.typicode.com/posts/${postId}`)
-  .then(value => value.json())
-  .then(posts => {
+    .then(value => value.json())
+    .then(posts => {
 
-      for (let postInfoKey in posts) {
-        if (postInfoKey === 'id' || postInfoKey === 'title' || postInfoKey === 'body') {
+            let postInfoBlock = document.createElement("div")
+            postInfoBlock.classList.add('postInfoBlock')
+            document.body.appendChild(postInfoBlock)
 
-          let PostBlock = document.createElement('div')
-          PostBlock.classList.add('PostBlock')
-          document.body.appendChild(PostBlock)
-          let PostInfo = document.createElement('div')
-          PostInfo.classList.add('PostInfoBlock')
+            for (let postInfoKey in posts) {
+                if (postInfoKey === 'title' || postInfoKey === 'body') {
+
+                    let PostBlock = document.createElement('div')
+                    PostBlock.classList.add('PostBlock')
+                    document.body.appendChild(PostBlock)
+                    let PostInfo = document.createElement('div')
+                    PostInfo.classList.add('PostInfoBlock')
 
 
-          let h3 = document.createElement('h3')
-          h3.classList.add('InfoText')
-          h3.innerText = `${postInfoKey}`
-          let h2 = document.createElement('h3')
-          h2.innerText = `${posts[postInfoKey]}`
-          h3.appendChild(h2)
-          PostInfo.appendChild(h3)
-          PostBlock.appendChild(PostInfo)
+                    let h2 = document.createElement('h2')
+                    h2.classList.add('InfoText')
+                    h2.innerText = `${postInfoKey}`
+                    let h3 = document.createElement('h5')
+                    h3.innerText = `${posts[postInfoKey]}`
+                    h2.appendChild(h3)
+                    PostInfo.appendChild(h2)
+                    PostBlock.appendChild(PostInfo)
+                    postInfoBlock.append(PostBlock)
 
+                }
+
+            }
+            let h3CommentSign = document.createElement('h3')
+            h3CommentSign.classList.add('CommentSign')
+            h3CommentSign.innerHTML = `<h3>Comments</h3>`
+            document.body.appendChild(h3CommentSign)
         }
 
-      }
-      let h3CommentSign = document.createElement('h3')
-      h3CommentSign.classList.add('CommentSign')
-      h3CommentSign.innerHTML = `<h3>Comments</h3>`
-      document.body.appendChild(h3CommentSign)
-    }
+    )
 
-  )
+setTimeout(() => {
 
 
-fetch(CommentsUrl)
-  .then(value => value.json())
-  .then(comments => {
+    fetch(`https://jsonplaceholder.typicode.com/posts/${postId}/comments`)
+        .then(value => value.json())
+        .then(comments => {
 
-    console.log(comments)
+            console.log(comments)
 
-    for (let commentKey in comments) {
-      if (commentKey === 'id' || commentKey === 'name' || commentKey === 'email' || commentKey === 'body') {
+            let InfoBlockComment = document.createElement('div')
+            InfoBlockComment.classList.add('commentInfoBlockList')
+            document.body.appendChild(InfoBlockComment)
 
-        let CommentBlock = document.createElement('div')
-        CommentBlock.classList.add('CommentInfoBlock')
-        document.body.appendChild(CommentBlock)
-
-        let CommentId = document.createElement('div')
-        CommentId.classList.add('CommentBlock')
-
-        let h3Comment = document.createElement('h3')
-        h3Comment.classList.add('CommentText')
-        h3Comment.innerText = `${commentKey}`
-        let h2 = document.createElement('h3')
-        h2.innerText = `${comments[commentKey]}`
-        h3Comment.appendChild(h2)
-        CommentId.appendChild(h3Comment)
-        CommentBlock.appendChild(CommentId)
-      }
-    }
-    let lineBetweenComments = document.createElement('div')
-    lineBetweenComments.classList.add('LineComments')
-    document.body.appendChild(lineBetweenComments)
+            for (const comment of comments) {
 
 
+                let CommentBlock = document.createElement('div')
+                CommentBlock.classList.add('CommentInfoBlock')
+                document.body.appendChild(CommentBlock)
+
+                let CommentId = document.createElement('div')
+                CommentId.classList.add('CommentBlock')
+
+                let h2Comment = document.createElement('h2')
+                h2Comment.classList.add('CommentText')
+                h2Comment.innerHTML = `</div><h3>${comment.name}</h3><br><div class="LineComments"></div>`
+                let h3 = document.createElement('h3')
+                h3.innerHTML = `<h3 style="background-color: dodgerblue; color: white; border-radius: 50px; width: 50%; text-align: center">${comment.email}</h3><br><h4>${comment.body}</h4>`
+                h2Comment.appendChild(h3)
+                CommentId.appendChild(h2Comment)
+                CommentBlock.appendChild(CommentId)
+                InfoBlockComment.append(CommentBlock)
 
 
-  });
+            }
+
+
+        });
+
+}, 1000);
