@@ -11,6 +11,9 @@
 
     background-color: lightskyblue;
 
+    margin: 0;
+
+
   }
 
   div{
@@ -31,6 +34,7 @@
     justify-content: center;
     width: 90%;
     background-color: aquamarine;
+    border-radius: 50px;
 
   }
 
@@ -47,7 +51,13 @@
     justify-content: center;
     margin: 0;
     border-radius: 55px;
+    transition: 0.5s;
 
+  }
+
+  #returnButton:hover{
+    scale: 90%;
+    transition: 0.5s;
   }
 
   .BtnDiv{
@@ -76,14 +86,25 @@
     border-style: solid;
     border-color: dodgerblue;
     border-width: 5px;
+    transition: 0.5s;
   }
   .BlockBtnDiv:hover{
 
-    background-color: gray;
-    border-color: gray;
-    transition: 0.3s;
+    scale: 90%;
+    transition: 0.5s;
 
   }
+
+  .titleList{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 90vw;
+    height: 150%;
+    flex-wrap: wrap;
+    flex-direction: row;
+  }
+
   .TitleSign{
     width: 100%;
     height: 20vh;
@@ -94,25 +115,29 @@
     font-size: 50px;
     border-top-style: solid;
   }
-  .titleContainer{
 
-    height: 35vh;
+  h3{
+    text-align: center;
+  }
+
+  section{
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    margin: auto;
-
+    justify-content: space-evenly;
+    flex-flow: row wrap;
+    width: 100%;
   }
 
   .titleBlock{
     background-color: aquamarine;
-    width: 77%;
+    width: 30vw;
+    height: 25vh;
     border-style: solid;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    padding: 10px;
+    border-radius: 30px;
 
   }
   .TitleButton{
@@ -127,13 +152,13 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    transition: 0.5s;
   }
 
   .TitleButton:hover{
 
-    background-color: gray;
-    border-color: gray;
-    transition: 0.3s;
+    scale: 90%;
+    transition: 0.5s;
 
   }
 

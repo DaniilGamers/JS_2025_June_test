@@ -13,6 +13,7 @@ fetch(baseUrl)
   .then(usersId => {
     console.log(userId)
 
+
     let returnButton = document.createElement('div')
     returnButton.classList.add('BtnReturn')
 
@@ -35,16 +36,26 @@ fetch(baseUrl)
       console.log(resultUserKey)
 
       let divUser = document.createElement('divUserKey');
-      if(resultUserKey === 'address' || resultUserKey === 'company' || resultUserKey === 'geo'){
-        for (const UserKey in usersId[resultUserKey]){
-          let p = document.createElement('h4')
-          main.appendChild(p)
-          p.innerText = `${UserKey} - ${usersId[resultUserKey][UserKey]}`
+      if(resultUserKey === 'address' || resultUserKey === 'company' ){
+
+
+
+        for (const UserKey in usersId[resultUserKey]) {
+          let p = document.createElement('h4');
+          main.appendChild(p);
+
+          let geo = usersId[resultUserKey][UserKey];
+          if (UserKey === 'geo' && typeof geo === 'object'){
+            p.innerText = `${UserKey} - lat: ${geo.lat}, lng: ${geo.lng}`
+          }else {
+            p.innerText = `${UserKey} - ${geo}`
+          }
+
         }
 
-      } else{
+      }else{
 
-        let div_User = document.createElement('h4')
+        let div_User = document.createElement('h3')
         main.appendChild(div_User)
         div_User.innerText = `${resultUserKey} - ${usersId[resultUserKey]}`
 
@@ -63,6 +74,7 @@ fetch(baseUrl)
     <h3><a>Post of current user</a></h3>
 
     `
+
     BlockButton.addEventListener('click', () => {
 
       fetch(`https://jsonplaceholder.typicode.com/users/${userId}/posts`)
@@ -74,12 +86,15 @@ fetch(baseUrl)
           h3TitleSign.innerHTML = `<h3>Titles</h3>`
           document.body.appendChild(h3TitleSign)
 
+          let titleList = document.createElement('div')
+
+          document.body.appendChild(titleList)
+
+          titleList.classList.add("titleList")
+
           for (const post of posts){
-            let titleContainer =document.createElement('div')
 
-            titleContainer.classList.add('titleContainer')
 
-            document.body.appendChild(titleContainer)
 
             let h3Title = document.createElement('h3')
             h3Title.classList.add('titleBlock')
@@ -88,8 +103,10 @@ fetch(baseUrl)
             TitleButton.classList.add('TitleButton')
             TitleButton.innerHTML = `<h4>See full details</h4>`
             h3Title.append(TitleButton)
-            titleContainer.append(h3Title)
+            titleList.append(h3Title)
+
             TitleButton.addEventListener('click', () =>{
+              localStorage.setItem('userId', JSON.stringify({userId: userId}))
               location.href = 'post-details.html?postId='+ post.id;
             })
           }

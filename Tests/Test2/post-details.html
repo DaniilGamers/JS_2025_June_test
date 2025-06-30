@@ -10,6 +10,24 @@
 
     background-color: lightskyblue;
 
+    margin: 0;
+  }
+
+  div{
+    margin: 0;
+  }
+
+  h5{
+    text-align: center;
+  }
+
+  .postInfoBlock{
+    width: 100%;
+    height: 55vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
   }
 
   #returnButton2{
@@ -24,7 +42,13 @@
     align-items: center;
     justify-content: center;
     border-radius: 55px;
+    transition: 0.5s;
 
+  }
+
+  #returnButton2:hover{
+    scale: 90%;
+    transition: 0.5s;
   }
 
   #TextPostBlock{
@@ -59,6 +83,7 @@
     border-style: solid;
     background-color: aquamarine;
     padding: 0;
+    border-radius: 30px;
   }
   .PostInfoBlock{
     width: 95%;
@@ -86,15 +111,28 @@
   }
   .CommentInfoBlock{
     border-style: solid;
-    width: 90%;
+    width: 85%;
     background-color: aquamarine;
     display: flex;
     flex-direction: column;
-    margin: auto;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    border-radius: 30px;
+  }
+
+  .commentInfoBlockList{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
   }
   .LineComments{
     border-style: solid;
+    width: 100%;
     margin: 50px;
+    border-radius: 50px;
   }
   .CommentBlock{
     display: flex;
@@ -102,7 +140,9 @@
     align-items: center;
     justify-content: center;
     width: 85%;
+    height: 72vh;
     margin: auto;
+    text-align: center;
   }
   .CommentText{
     display: flex;
