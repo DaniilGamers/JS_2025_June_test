@@ -41,9 +41,14 @@ if (list.length === 0){
     }
 
 }
+
+reloadList()
+
 //////Add pair to the list storage/////
 
 function addPair () {
+
+
 
     const test = document.getElementById('inputBox')
 
@@ -51,13 +56,11 @@ function addPair () {
 
     const [name, value] = text.split('=')
 
-    if (!text.includes('=') || text.startsWith('=') || text.endsWith('=') || !text === undefined || !/^[A-Za-z\s]+$/.test(name) && !/^[A-Za-z\s]+$/.test(value)){
+    if (!text.includes('=') || text.startsWith('=') || text.endsWith('=') || !text === undefined || !/^[a-zA-Z0-9]+$/.test(name) && !/^[a-zA-Z0-9]+$/.test(value)){
 
         console.log('Put between Name and Value with symbol =. Only words!')
 
     }else{
-
-        console.log('test')
 
 
 
@@ -70,11 +73,6 @@ function addPair () {
 
         };
 
-
-
-        console.log('test!')
-
-
         list.push(pairList)
 
         console.log(list)
@@ -83,6 +81,8 @@ function addPair () {
 
         id++;
 
+        reloadList();
+
     }
 
 
@@ -90,26 +90,39 @@ function addPair () {
 
 /////Show pair on window list/////
 
+let div = document.getElementById('pairListText')
 
-if (list.length === 0){
 
-    console.log('list is empty')
+function reloadList(){
 
-}else{
+    setTimeout(() => {
 
-    for (const pair of list){
+        let list = JSON.parse(localStorage.getItem('pairs')) || []
 
-        let div = document.getElementById('div')
+        div.innerHTML = '';
 
-        document.body.appendChild(div)
+        if (list.length === 0){
 
-        div.classList.add('pairListText')
+            div.innerHTML = '<p>The list is empty</p>'
+            return;
 
-        div.innerHTML = `<div>${pair.name}=${pair.value}</div>`
+        }
 
-        console.log(`${pair.name}=${pair.value}`)
+            for(const pair of list) {
 
-    }
+                const p = document.createElement('p')
+
+                p.innerText = pair.name + '=' + pair.value
+
+                div.appendChild(p)
+
+
+
+
+
+        }
+
+    }, 100)
 
 }
 
@@ -123,9 +136,9 @@ function sortByName() {
         return a.name.localeCompare(b.name)
     })
 
-    console.log(sortedName)
-
     localStorage.setItem('pairs', JSON.stringify(sortedName));
+
+    reloadList()
 
 
 
@@ -139,11 +152,20 @@ function sortByValue() {
         return a.value.localeCompare(b.value)
     })
 
-    console.log(sortedValue)
+
 
     localStorage.setItem('pairs', JSON.stringify(sortedValue));
 
+    reloadList()
 
+
+
+}
+
+///Select the pair function///
+
+
+function selectPair(){
 
 }
 
