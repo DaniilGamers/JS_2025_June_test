@@ -1,16 +1,44 @@
 //////Pair array//////
 
+let defaultList = JSON.parse(localStorage.getItem('pairs')) || []
+
+
+
+defaultList.sort(function (a, b){
+
+    return a.id - b.id
+
+});
+
+
+
+
+console.log(defaultList)
+
+localStorage.setItem('pairs', JSON.stringify(defaultList))
+
+
+let list = JSON.parse(localStorage.getItem('pairs')) || []
+
 let id = 0
 
-let list = JSON.parse(localStorage.getItem('pairs'))
-
-if (list === null){
+if (list.length === 0){
 
     console.log('list is empty')
 
 }else{
 
-console.log(list)
+    console.log('list have filled')
+
+    if (list.length === list.length){
+
+        let lastId = list.length
+
+        id = (lastId)
+
+        console.log(id)
+
+    }
 
 }
 //////Add pair to the list storage/////
@@ -21,13 +49,17 @@ function addPair () {
 
     const text = test.value
 
-    if (!text.includes('=') || text.startsWith('=') || text.endsWith('=') || !text === undefined){
+    const [name, value] = text.split('=')
 
-        console.log('Write something or put between Name and Value with symbol =')
+    if (!text.includes('=') || text.startsWith('=') || text.endsWith('=') || !text === undefined || !/^[A-Za-z\s]+$/.test(name) && !/^[A-Za-z\s]+$/.test(value)){
+
+        console.log('Put between Name and Value with symbol =. Only words!')
 
     }else{
 
-        const [name, value] = text.split('=')
+        console.log('test')
+
+
 
 
         const pairList = {
@@ -38,27 +70,28 @@ function addPair () {
 
         };
 
-        if (pairList.name === list.name && pairList.value === list.value){
 
-            console.log('Come up with something original!')
 
-        }else{
+        console.log('test!')
 
-            list.push(pairList)
 
-            console.log(list)
+        list.push(pairList)
 
-            localStorage.setItem('pairs', JSON.stringify(list));
-        }
+        console.log(list)
+
+        localStorage.setItem('pairs', JSON.stringify(list));
+
+        id++;
+
     }
 
-    id++;
+
 }
 
 /////Show pair on window list/////
 
 
-if (list === null){
+if (list.length === 0){
 
     console.log('list is empty')
 
@@ -66,13 +99,13 @@ if (list === null){
 
     for (const pair of list){
 
-        let pairListText = document.getElementById('div')
+        let div = document.getElementById('div')
 
-        document.body.appendChild(pairListText)
+        document.body.appendChild(div)
 
-        pairListText.classList.add('pairListText')
+        div.classList.add('pairListText')
 
-        pairListText.innerHTML = `<div>${pair.name}=${pair.value}</div>`
+        div.innerHTML = `<div>${pair.name}=${pair.value}</div>`
 
         console.log(`${pair.name}=${pair.value}`)
 
@@ -84,14 +117,42 @@ if (list === null){
 
 /////Sort by Name function/////
 
+function sortByName() {
 
+    let sortedName = list.sort(function (a, b){
+        return a.name.localeCompare(b.name)
+    })
+
+    console.log(sortedName)
+
+    localStorage.setItem('pairs', JSON.stringify(sortedName));
+
+
+
+}
 
 /////Sort by Value function/////
+
+function sortByValue() {
+
+    let sortedValue = list.sort(function (a, b){
+        return a.value.localeCompare(b.value)
+    })
+
+    console.log(sortedValue)
+
+    localStorage.setItem('pairs', JSON.stringify(sortedValue));
+
+
+
+}
 
 
 
 /////Delete function/////
 
 function deletePair() {
+
+    console.log('Delete test')
     
 }

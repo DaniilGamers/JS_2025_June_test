@@ -71,16 +71,16 @@
 
                 <div id="listBtnBox">
 
-                    <button class="listButtonsBox">Sort by Name</button>
+                    <button class="listButtonsBox" onclick="sortByName()">Sort by Name</button>
 
                     <br>
 
-                    <button class="listButtonsBox">Sort by value</button>
+                    <button class="listButtonsBox" onclick="sortByValue()">Sort by value</button>
 
                     <br>
                     <br>
 
-                    <button class="listButtonsBox" style="width: 4.5vw">Delete</button>
+                    <button class="listButtonsBox" style="width: 4.5vw" onclick="deletePair()">Delete</button>
 
                 </div>
 
@@ -95,8 +95,6 @@
 <script src="pairList.js"></script>
 
 <script>
-
-
 
     let formMain = document.forms.formMain;
 
