@@ -27,18 +27,24 @@
 
 
                 <label>
-                    <input type="text" id="inputBox" placeholder="enter the name and value here...">
+                    <input type="text" id="inputBox" name="text" placeholder="enter the name and value here..." required pattern='A-Za-z0-9=A-Za-z0-9'>
                 </label>
 
             </section>
 
             <section id="inputAddBox">
 
-                <form>
 
-                    <button onclick="addPair()" id="addBox">Add</button>
 
-                </form>
+
+
+                    <form id="formMain">
+
+                        <button onclick="addPair()" id="addBox">Add</button>
+
+                    </form>
+
+
 
             </section>
 
@@ -59,7 +65,7 @@
 
                 <div id="pairListWindow">
 
-                    <div id="pairListText"><script></script></div>
+                    <div id="pairListText"></div>
 
                 </div>
 
@@ -85,6 +91,23 @@
     </div>
 
 </div>
+
+<script src="pairList.js"></script>
+
+<script>
+
+
+
+    let formMain = document.forms.formMain;
+
+    formMain.onsubmit = function (ev) {
+
+        ev.preventDefault();
+
+
+    }
+
+</script>
 
 
 
