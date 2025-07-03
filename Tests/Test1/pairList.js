@@ -46,6 +46,10 @@ reloadList()
 
 //////Add pair to the list storage/////
 
+let divError = document.getElementById('errorBox')
+
+divError.innerHTML = ''
+
 function addPair () {
 
 
@@ -60,9 +64,11 @@ function addPair () {
 
         console.log('Put between Name and Value with symbol =. Only words!')
 
+        divError.innerHTML = `<h5>Put between Name and Value with symbol =. Only words!</h5>`
+
     }else{
 
-
+        divError.innerHTML = ''
 
 
         const pairList = {
@@ -92,6 +98,8 @@ function addPair () {
 
 let div = document.getElementById('pairListText')
 
+let selectedPairs = []
+
 
 function reloadList(){
 
@@ -108,11 +116,58 @@ function reloadList(){
 
         }
 
+        let emptySelect = true;
+
             for(const pair of list) {
 
                 const p = document.createElement('p')
 
                 p.innerText = pair.name + '=' + pair.value
+
+
+                ///Event for selecting pairs for deletion///
+
+
+                p.addEventListener('click', () => {
+
+
+
+                    let found = false;
+
+                    for (let i = 0; i < selectedPairs.length; i++){
+
+                        if (selectedPairs[i].id === pair.id){
+
+                            selectedPairs.splice(i,1)
+                            found = true
+
+                            p.style.backgroundColor = ""
+                            p.style.color = ""
+
+                            break
+
+                        }
+
+                    }
+
+                    if (!found){
+
+                        selectedPairs.push(pair)
+
+                        console.log(selectedPairs)
+
+                        emptySelect = false
+
+                        p.style.backgroundColor = "royalblue"
+                        p.style.color = "white"
+
+                    }
+
+
+
+
+
+                })
 
                 div.appendChild(p)
 
@@ -162,19 +217,43 @@ function sortByValue() {
 
 }
 
-///Select the pair function///
-
-
-function selectPair(){
-
-}
-
-
 
 /////Delete function/////
 
+
+
 function deletePair() {
 
-    console.log('Delete test')
+    for (let i = 0; i < selectedPairs.length; i++){
+
+        for(let j = 0; j < list.length; j++){
+
+            if (selectedPairs[i].id === list[j].id){
+
+                list.pop()
+
+            }
+
+        }
+
+    }
+
+    selectedPairs = []
+
+    for (let i = 0; i < list.length; i++){
+
+        list[i].id = i;
+
+    }
+
+    let refreshedList = (list)
+
+    console.log(refreshedList)
+
+    localStorage.setItem('pairs', JSON.stringify(refreshedList))
+
+    reloadList()
+
+
     
 }
