@@ -64,7 +64,7 @@ function addPair () {
 
         console.log('Put between Name and Value with symbol =. Only words!')
 
-        divError.innerHTML = `<h5>Put between Name and Value with symbol =. Only words!</h5>`
+        divError.innerHTML = `<h5>Put between Name and Value with '=' Only words!</h5>`
 
     }else{
 
