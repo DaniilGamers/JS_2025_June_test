@@ -31,11 +31,11 @@ div{
 
 
 
-#linkButton{
+.linkButton{
     margin: auto;
     background-color: dodgerblue;
     color: white;
-    width: 100%;
+    width: 60%;
     height: 30px;
     display: flex;
     flex-direction: column;
@@ -64,7 +64,7 @@ div{
 
 }
 
-#linkButton:hover{
+.linkButton:hover{
     scale: 90%;
     transition: 0.5s;
 }

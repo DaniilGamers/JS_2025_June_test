@@ -29,12 +29,14 @@ fetch('http://jsonplaceholder.typicode.com/users')
 
       let linkText = document.createElement('h4')
 
+      linkText.classList.add("linkButton")
+
       h3.innerText = `${user.id} - ${user.name}`;
 
-      linkText.classList.add("LinkButton")
+
 
       linkText.innerHTML = `
-                <h4 id="linkButton">Click here for full details</h4>
+                Click here for full details
 
                 `
 
