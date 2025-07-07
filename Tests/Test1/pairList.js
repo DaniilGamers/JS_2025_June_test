@@ -42,7 +42,7 @@ function addPair () {
 
     const [name, value] = text.split('=')
 
-    if (!text.includes('=') || text.startsWith('=') || text.endsWith('=') || !text === null || !/^[a-zA-Z0-9]+$/.test(name) && !/^[a-zA-Z0-9]+$/.test(value)){
+    if (!text.includes('=') || text.startsWith('=') || text.endsWith('=') || text === '' || !/^[a-zA-Z0-9]+$/.test(name) && !/^[a-zA-Z0-9]+$/.test(value)){
 
         console.log('Put between Name and Value with symbol =. Only words!')
 
