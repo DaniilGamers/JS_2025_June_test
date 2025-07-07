@@ -14,7 +14,7 @@ returnBtn.innerHTML = `
     <h4 id="returnButton2">Return back to the users list</h4>
     `
 returnBtn.addEventListener('click',() =>{
-    location.href = 'index.html'
+    location.href = '../Users/index.html'
 })
 
 returnButton2.appendChild(returnBtn)
@@ -31,7 +31,7 @@ returnBtn2.addEventListener('click',() =>{
 
     const userId = JSON.parse(localStorage.getItem('userId'))
 
-    location.href = `user-details.html?id=` + `${userId.userId}`;
+    location.href = `../Posts/user-details.html?id=` + `${userId.userId}`;
 
 
 

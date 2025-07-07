@@ -1,12 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Title</title>
-</head>
-<style>
-
-  body{
+body{
 
     background-color: lightskyblue;
     display: flex;
@@ -17,29 +9,29 @@
     justify-content: center;
 
 
-  }
+}
 
-  div{
+div{
     display: flex;
     justify-content: space-evenly;
     margin-top: 10px;
     flex-flow: row wrap;
     width: 100%;
 
-  }
+}
 
-  .usersList{
+.usersList{
     display: flex;
     flex-wrap: wrap;
     align-items: center;
     justify-content: space-evenly;
     width: 100%;
     height: 75vh;
-  }
+}
 
 
 
-  #linkButton{
+#linkButton{
     margin: auto;
     background-color: dodgerblue;
     color: white;
@@ -54,9 +46,9 @@
     border-color: dodgerblue;
     border-width: 5px;
     transition: 0.5s;
-  }
+}
 
-  .ObjectBlock{
+.ObjectBlock{
 
     border-style: solid;
     border-color: black;
@@ -70,25 +62,9 @@
     background-color: darkturquoise;
     border-radius: 20px;
 
-  }
+}
 
-  #linkButton:hover{
+#linkButton:hover{
     scale: 90%;
     transition: 0.5s;
-  }
-
-</style>
-<body>
-
-
-<h1>Users</h1>
-
-<div></div>
-
-<script src="users.js"></script>
-
-
-
-
-</body>
-</html>
+}

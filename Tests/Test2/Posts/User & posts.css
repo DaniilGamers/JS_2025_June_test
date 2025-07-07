@@ -1,22 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Users</title>
-</head>
-
-<style>
-
-  body{
+body{
 
     background-color: lightskyblue;
 
     margin: 0;
 
 
-  }
+}
 
-  div{
+div{
 
     display: flex;
     flex-direction: column;
@@ -25,9 +16,9 @@
     margin: auto;
 
 
-  }
+}
 
-  .MainDiv{
+.MainDiv{
 
     border-style: solid;
     align-items: center;
@@ -36,9 +27,9 @@
     background-color: aquamarine;
     border-radius: 50px;
 
-  }
+}
 
-  #returnButton{
+#returnButton{
 
     background-color: white;
     border-style: solid;
@@ -53,14 +44,14 @@
     border-radius: 55px;
     transition: 0.5s;
 
-  }
+}
 
-  #returnButton:hover{
+#returnButton:hover{
     scale: 90%;
     transition: 0.5s;
-  }
+}
 
-  .BtnDiv{
+.BtnDiv{
 
     border-color: black;
     width: 90%;
@@ -70,9 +61,9 @@
     justify-content: center;
     margin: auto;
 
-  }
+}
 
-  .BlockBtnDiv{
+.BlockBtnDiv{
     margin: auto;
     background-color: dodgerblue;
     width: 240px;
@@ -87,15 +78,15 @@
     border-color: dodgerblue;
     border-width: 5px;
     transition: 0.5s;
-  }
-  .BlockBtnDiv:hover{
+}
+.BlockBtnDiv:hover{
 
     scale: 90%;
     transition: 0.5s;
 
-  }
+}
 
-  .titleList{
+.titleList{
     display: flex;
     align-items: center;
     justify-content: space-evenly;
@@ -103,9 +94,9 @@
     height: 150%;
     flex-wrap: wrap;
     flex-direction: row;
-  }
+}
 
-  .TitleSign{
+.TitleSign{
     width: 100%;
     height: 20vh;
     display: flex;
@@ -114,20 +105,20 @@
     justify-content: center;
     font-size: 50px;
     border-top-style: solid;
-  }
+}
 
-  h3{
+h3{
     text-align: center;
-  }
+}
 
-  section{
+section{
     display: flex;
     justify-content: space-evenly;
     flex-flow: row wrap;
     width: 100%;
-  }
+}
 
-  .titleBlock{
+.titleBlock{
     background-color: aquamarine;
     width: 30vw;
     height: 25vh;
@@ -139,8 +130,8 @@
     padding: 10px;
     border-radius: 30px;
 
-  }
-  .TitleButton{
+}
+.TitleButton{
     width: 210px;
     height: 50px;
     background-color: dodgerblue;
@@ -153,31 +144,11 @@
     align-items: center;
     justify-content: center;
     transition: 0.5s;
-  }
+}
 
-  .TitleButton:hover{
+.TitleButton:hover{
 
     scale: 90%;
     transition: 0.5s;
 
-  }
-
-</style>
-
-<body>
-
-
-
-<script>
-
-
-</script>
-
-
-<script src="each-user.js"></script>
-
-
-
-
-</body>
-</html>
+}

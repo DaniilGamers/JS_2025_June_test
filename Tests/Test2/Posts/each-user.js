@@ -22,7 +22,7 @@ fetch(baseUrl)
     <h4 id="returnButton">Return back</h4>
     `
         returnBtn.addEventListener('click',() =>{
-            location.href = 'index.html'
+            location.href = '../Users/index.html'
         })
 
         returnButton.appendChild(returnBtn)
@@ -35,7 +35,7 @@ fetch(baseUrl)
 
             console.log(resultUserKey)
 
-            let divUser = document.createElement('divUserKey');
+
             if(resultUserKey === 'address' || resultUserKey === 'company' ){
 
 
@@ -58,8 +58,6 @@ fetch(baseUrl)
                 let div_User = document.createElement('h3')
                 main.appendChild(div_User)
                 div_User.innerText = `${resultUserKey} - ${usersId[resultUserKey]}`
-
-                main.appendChild(divUser)
 
             }
         }
@@ -107,7 +105,7 @@ fetch(baseUrl)
 
                         TitleButton.addEventListener('click', () =>{
                             localStorage.setItem('userId', JSON.stringify({userId: userId}))
-                            location.href = 'post-details.html?postId='+ post.id;
+                            location.href = '../Comments/post-details.html?postId='+ post.id;
                         })
                     }
 

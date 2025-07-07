@@ -40,7 +40,7 @@ fetch('http://jsonplaceholder.typicode.com/users')
 
 
       linkText.addEventListener('click', () =>{
-        location.href = 'user-details.html?id='+ user.id;
+        location.href = '../Posts/user-details.html?id='+ user.id;
       })
 
       objects.append(h3)

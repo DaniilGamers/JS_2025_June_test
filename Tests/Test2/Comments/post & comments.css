@@ -1,36 +1,28 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Title</title>
-</head>
-<style>
-
-  body{
+body{
 
     background-color: lightskyblue;
 
     margin: 0;
-  }
+}
 
-  div{
+div{
     margin: 0;
-  }
+}
 
-  h5{
+h5{
     text-align: center;
-  }
+}
 
-  .postInfoBlock{
+.postInfoBlock{
     width: 100%;
     height: 55vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-  }
+}
 
-  #returnButton2{
+#returnButton2{
 
     background-color: white;
     border-style: solid;
@@ -44,14 +36,14 @@
     border-radius: 55px;
     transition: 0.5s;
 
-  }
+}
 
-  #returnButton2:hover{
+#returnButton2:hover{
     scale: 90%;
     transition: 0.5s;
-  }
+}
 
-  #TextPostBlock{
+#TextPostBlock{
     display: flex;
     flex-direction: column;
 
@@ -60,9 +52,9 @@
     justify-content: center;
     font-size: 50px;
     border-top-style: solid;
-  }
+}
 
-  #TextCommentBlock{
+#TextCommentBlock{
     display: flex;
     flex-direction: column;
 
@@ -71,8 +63,8 @@
     justify-content: center;
     font-size: 30px;
     border-top-style: solid;
-  }
-  .PostBlock{
+}
+.PostBlock{
     width: 90%;
     height: 25vh;
     display: flex;
@@ -84,22 +76,22 @@
     background-color: aquamarine;
     padding: 0;
     border-radius: 30px;
-  }
-  .PostInfoBlock{
+}
+.PostInfoBlock{
     width: 95%;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
 
-  }
-  .InfoText{
+}
+.InfoText{
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-  }
-  .CommentSign{
+}
+.CommentSign{
     width: 100%;
     height: 20vh;
     display: flex;
@@ -108,8 +100,8 @@
     justify-content: center;
     font-size: 50px;
     border-top-style: solid;
-  }
-  .CommentInfoBlock{
+}
+.CommentInfoBlock{
     border-style: solid;
     width: 85%;
     background-color: aquamarine;
@@ -119,22 +111,22 @@
     align-items: center;
     margin-top: 20px;
     border-radius: 30px;
-  }
+}
 
-  .commentInfoBlockList{
+.commentInfoBlockList{
     width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-  }
-  .LineComments{
+}
+.LineComments{
     border-style: solid;
     width: 100%;
     margin: 50px;
     border-radius: 50px;
-  }
-  .CommentBlock{
+}
+.CommentBlock{
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -143,17 +135,10 @@
     height: 72vh;
     margin: auto;
     text-align: center;
-  }
-  .CommentText{
+}
+.CommentText{
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-  }
-
-</style>
-<body>
-
-<script src="post-details.js"></script>
-</body>
-</html>
+}

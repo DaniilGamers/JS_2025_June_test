@@ -1,23 +1,5 @@
 //////Pair array//////
 
-let defaultList = JSON.parse(localStorage.getItem('pairs')) || []
-
-
-
-defaultList.sort(function (a, b){
-
-    return a.id - b.id
-
-});
-
-
-
-
-console.log(defaultList)
-
-localStorage.setItem('pairs', JSON.stringify(defaultList))
-
-
 let list = JSON.parse(localStorage.getItem('pairs')) || []
 
 let id = 0
@@ -60,7 +42,7 @@ function addPair () {
 
     const [name, value] = text.split('=')
 
-    if (!text.includes('=') || text.startsWith('=') || text.endsWith('=') || !text === undefined || !/^[a-zA-Z0-9]+$/.test(name) && !/^[a-zA-Z0-9]+$/.test(value)){
+    if (!text.includes('=') || text.startsWith('=') || text.endsWith('=') || !text === null || !/^[a-zA-Z0-9]+$/.test(name) && !/^[a-zA-Z0-9]+$/.test(value)){
 
         console.log('Put between Name and Value with symbol =. Only words!')
 
@@ -105,8 +87,6 @@ function reloadList(){
 
     setTimeout(() => {
 
-        let list = JSON.parse(localStorage.getItem('pairs')) || []
-
         div.innerHTML = '';
 
         if (list.length === 0){
@@ -143,6 +123,8 @@ function reloadList(){
 
                             p.style.backgroundColor = ""
                             p.style.color = ""
+
+
 
                             break
 
@@ -191,7 +173,9 @@ function sortByName() {
         return a.name.localeCompare(b.name)
     })
 
-    localStorage.setItem('pairs', JSON.stringify(sortedName));
+    list = []
+
+    list = sortedName
 
     reloadList()
 
@@ -207,9 +191,11 @@ function sortByValue() {
         return a.value.localeCompare(b.value)
     })
 
+    list = []
 
+    list = sortedValue
 
-    localStorage.setItem('pairs', JSON.stringify(sortedValue));
+    console.log(list)
 
     reloadList()
 
@@ -228,9 +214,9 @@ function deletePair() {
 
         for(let j = 0; j < list.length; j++){
 
-            if (selectedPairs[i].id === list[j].id){
+            if (list[j].id === selectedPairs[i].id){
 
-                list.pop()
+                list.splice(j, 1)
 
             }
 
